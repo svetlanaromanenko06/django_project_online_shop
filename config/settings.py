@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 
@@ -79,10 +79,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_project_online_shop',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'online_shop',
         'USER': 'postgres',
-        'PASSWORD': '123123'
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
+
+        'PASSWORD': '123123',
+
     }
 }
 
@@ -120,11 +125,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+'''
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     ]
+    
+'''
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -132,4 +146,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = BASE_DIR / 'media'
+
