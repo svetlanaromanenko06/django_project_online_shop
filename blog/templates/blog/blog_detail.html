@@ -1,0 +1,20 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="row mx-2">
+    <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Статья "{{ object.title }}" ({{ object.slug }})</h4>
+    </div>
+    <div class="col-md-4 mb-3">
+        <img src="{% mediapath blog.preview %}" class="img-fluid" alt="{{ blog.title }}">
+    </div>
+    <div class="col-md-8 mb-3">
+        <p>{{ blog.content }}</p><br><br>
+        <div class="card-footer">
+            Количество просмотров: {{ object.views_count }}
+        </div>
+    </div>
+</div><br><br>
+{% endblock %}
+
