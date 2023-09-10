@@ -1,0 +1,54 @@
+[
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "title": "статья",
+      "slug": null,
+      "content": "умная мысль",
+      "preview": "",
+      "date_of_creation": "2023-08-21T00:00:00Z",
+      "is_published": true,
+      "views_count": 5
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "новая статья",
+      "slug": "novaya-statya",
+      "content": "уникальный контент!",
+      "preview": "",
+      "date_of_creation": "2023-08-21T00:00:00Z",
+      "is_published": true,
+      "views_count": 4
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 4,
+    "fields": {
+      "title": "ppppp",
+      "slug": null,
+      "content": "что-то с чем-то",
+      "preview": "",
+      "date_of_creation": "2023-08-21T00:00:00Z",
+      "is_published": false,
+      "views_count": 0
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 5,
+    "fields": {
+      "title": "Всё про диваны",
+      "slug": "vsyo-pro-divanyi",
+      "content": "Диван должен быть удобным. Всё!",
+      "preview": "",
+      "date_of_creation": "2023-08-21T00:00:00Z",
+      "is_published": true,
+      "views_count": 9
+    }
+  }
+]
