@@ -30,11 +30,17 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Меню</h4>
                     <ul class="list-unstyled">
-                        <li><a href="{% url 'catalog:shop_home' %}" class="text-white">Главная</a></li>
-                        <!--li><a href="{% url 'catalog:discription' %}" class="text-white">Подробнее о товарах</a></li-->
+                        <li><a href="{% url 'catalog:product_list' %}" class="text-white">Главная</a></li>
+
                         <li><a href="{% url 'blog:list' %}" class="text-white">Статьи</a></li>
+                        <li><a href="{% url 'catalog:shop_contacts' %}" class="text-white">Контакты</a></li>
+                        <li><a href="{% url 'catalog:category_list' %}" class="text-white">Категории</a></li>
+                </svg>
+                Категории
+                </a>
 
                         {% if user.is_authenticated %}
+
                             <li><a href="{% url 'users:profile' %}" class="text-white">Профиль</a></li>
                             <li><a href="{% url 'users:logout' %}" class="text-white">Выйти</a></li>
                         {% else %}

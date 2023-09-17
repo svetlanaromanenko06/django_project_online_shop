@@ -1,0 +1,29 @@
+{% extends 'catalog/base.html' %}
+{%block content%}
+
+<div class="row row-cols-lg-3 my-5 text-center align-items-center justify-content-center">
+    <div class="col-12">
+        {% for i in list_products %}
+        {% for object in object_list %}
+        <div class="col-lg-auto mx-lg-5">
+            <div class="col-md-4">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header py-3">
+                            <div class="card-body">
+                                <h4 class="my-0 fw-normal">{{i}}</h4>
+                                <p class="card-text">{{ object.name }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Выбрать</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
