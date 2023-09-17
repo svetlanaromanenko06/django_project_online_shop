@@ -4,7 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from django.urls import reverse_lazy, reverse
 from catalog.forms import ProductForm, VersionForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_categories_cache
 
 
 class ProductListView(ListView):
@@ -40,7 +41,7 @@ class ProductDetailView(DetailView):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-    success_url = reverse_lazy('catalog:shop_home')
+    success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
         self.object = form.save()
@@ -81,17 +82,18 @@ class ProductUpdateView(UpdateView):
         context_data['formset'] = formset
         return context_data
 
-    def form_valid(self, form):
-        context_data = self.get_context_data()
-        formset = context_data['formset']
-        self.object = form.save()
-        if formset.is_valid():
-            formset.instance = self.object
-            formset.save()
-        return super().form_valid(form)
 
 
 
 class ProductDeleteView(DeleteView):
     model = Product
-    success_url = reverse_lazy('catalog:shop_home')
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class CategoryListView(ListView):
+    model = Category
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['category_list'] = get_categories_cache()
+        return context_data
